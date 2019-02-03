@@ -1,0 +1,9 @@
+{
+    "EXE": [
+        "mkdir -p test/data dist"
+    ],
+    "source/lib/index.js": "dist -plugins=malta-mocha",
+    "source/test/*.js": "test -plugins=malta-mocha",
+    "source/srv.js": "dist -vars=source/vars.json",
+    "source/index.html": "dist"
+}

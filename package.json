@@ -6,21 +6,23 @@
   "scripts": {
     "build": "malta source/buildtr.json",
     "buildev": "malta source/buildev.json",
+    "start": "node dist/srv.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Federico Ghedina <federico.ghedina@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "malta": "^3.8.19",
+    "malta": "^3.8.20",
     "malta-dev-srv": "^1.0.6",
     "malta-header-comment": "^1.0.5",
     "malta-js-uglify": "^1.0.3",
-    "malta-less": "^1.0.6"
+    "malta-less": "^1.0.6",
+    "malta-mocha": "^1.0.12"
   },
   "dependencies": {
-    "@fedeghe/channeljs": "^1.1.5",
-    "@fedeghe/leonardo": "^1.0.2",
-    "balle": "^1.0.27",
-    "ridof": "^1.0.2"
+    "@fedeghe/channeljs": "^1.1.6",
+    "@fedeghe/leonardo": "^1.0.7",
+    "balle": "^1.0.33",
+    "ridof": "^1.0.5"
   }
 }

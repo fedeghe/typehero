@@ -1,1 +1,1 @@
-# typeHero
+# typehero
