@@ -6,7 +6,7 @@
   "scripts": {
     "build": "malta source/buildtr.json",
     "buildev": "malta source/buildev.json",
-    "start": "node dist/srv.js",
+    "start": "malta source/start.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Federico Ghedina <federico.ghedina@gmail.com>",
@@ -23,6 +23,7 @@
     "@fedeghe/channeljs": "^1.1.6",
     "@fedeghe/leonardo": "^1.0.7",
     "balle": "^1.0.33",
-    "ridof": "^1.0.5"
+    "ridof": "^1.0.5",
+    "widgzard": "^3.0.6"
   }
 }
