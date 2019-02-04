@@ -254,5 +254,6 @@ console.log(n)},render:function(t,e,n){var o=+new Date;return NS.Balle.one(funct
 getElement:NS.Widgzard.getElement,getElements:NS.Widgzard.getElements,getStore:NS.getStore,Channel:NS.Channel,events:NS.events,cookie:NS.cookie,utils:NS.utils,i18n:NS.i18n,io:NS.io,object:NS.object,
 css:NS.css,dom:NS.dom,timer:NS.timer,history:NS.history},W.Engy={component:NS.Engy.component,components:NS.Engy.components,configSet:NS.Engy.configSet,define:NS.Engy.define,get:NS.Engy.get,
 load:NS.Engy.loadStealth,getElement:NS.Engy.getElement,getElements:NS.Engy.getElements,process:NS.Engy.process,render:NS.Engy.render,timer:NS.timer,history:NS.history}}(this,"undefined","prototype"),
-function(){document.body.addEventListener("keyup",function(t){console.log("up"),console.log(t)}),document.body.addEventListener("keydown",function(t){console.log("down"),console.log(t)}),
-document.body.addEventListener("keypress",function(t){console.log("press"),console.log(t)})}()}();
+function(){var t=Channeljs.get("keyboard_event");document.body.addEventListener("keyup",function(e){t.pub("up",[e])}),document.body.addEventListener("keydown",function(e){t.pub("down",[e])}),
+document.body.addEventListener("keypress",function(e){t.pub("press",[e])})}();var trg=document.getElementById("trg"),app=Widgzard.render({target:trg,content:[{html:"lorem"}]
+}),channel=Channeljs.get("keyboard_event");channel.sub("down",function(t){console.log(t)})}();
