@@ -1,0 +1,2 @@
+# typehero
+$PACKAGE.version$
