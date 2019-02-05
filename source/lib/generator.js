@@ -1,4 +1,5 @@
 var Levels = (function () {
+
     function separatedRepeat(chars, min, max, num, sep) {
         var res = [],
             card = chars.length,
@@ -16,7 +17,6 @@ var Levels = (function () {
         }
         return res.join(sep)
     }
-
 
     var tests = {
         basic: [
@@ -37,61 +37,93 @@ var Levels = (function () {
             return separatedRepeat.apply(null, [set].concat(t));
         });
     }
-    function generateLevel(domains, test) {
-        var set = '',
-            i;
-        if (domains.left)
-            for( i in domains.left) {
-                set += domains.left[i]
-            }
-        if (domains.right)
-            for (i in domains.right) {
-                set += domains.right[i]
-            }
+    function generateLevel(chars, test) {
+        var set = chars.split('');
         return {
             set: set,
-            domains: domains,
             tests: generateTests(test, set)
         };
     }
 
     var levels = {
-        letters: [
-            generateLevel({
-                left: { index: 'f' },
-                right: { index: 'j' }
-            }, 'basic'),
-            generateLevel({
-                left: { middle: 'd' },
-                right: { middle: 'k' }
-            }, 'basic'),
-            generateLevel({
-                left: { ring: 's' },
-                right: { ring: 'l' }
-            }, 'basic'),
-            generateLevel({
-                left: { pinky: 'a' },
-                right: { pinky: ';' }
-            }, 'basic'),
-            generateLevel({
-                left: { index: 'g' },
-                right: { index: 'h' }
-            }, 'basic'),
-            generateLevel({
-                left: { index: 'fg', middle: 'd'},
-                right: { index: 'hj', middle: 'k'}
-            }, 'basic'),
-            generateLevel({
-                left: { index: 'fg', middle: 'd', ring: 's' },
-                right: { index: 'hj', middle: 'k', ring: 'l' }
-            }, 'basic'),
-            generateLevel({
-                left: { index: 'fg', middle:'d', ring: 's', pinky: 'a' },
-                right: { index: 'hj', middle: 'k', ring: 'l', pinky: ';' }
-            }, 'row')
-        ]
+        basic: {
+            homerow: [
+                generateLevel('fj', 'basic'),
+                generateLevel('dk', 'basic'),
+                generateLevel('sl', 'basic'),
+                generateLevel('a;', 'basic'),
+                generateLevel('gh', 'basic'),
+                generateLevel('fghj', 'basic'),
+                generateLevel('dfghjk', 'basic'),
+                generateLevel('sdfghjkl', 'basic'),
+                generateLevel('asdfghjkl;', 'row')
+            ],
+            uprow: [
+                generateLevel('ru', 'basic'),
+                generateLevel('ei', 'basic'),
+                generateLevel('wo', 'basic'),
+                generateLevel('qp', 'basic'),
+                generateLevel('ty', 'basic'),
+                generateLevel('rtyu', 'basic'),
+                generateLevel('ertyui', 'basic'),
+                generateLevel('wertyuio', 'basic'),
+                generateLevel('qwertyuiop', 'row')
+            ],
+            lowrow: [
+                generateLevel('vm', 'basic'),
+                generateLevel('c,', 'basic'),
+                generateLevel('x.', 'basic'),
+                generateLevel('z/', 'basic'),
+                generateLevel('bn', 'basic'),
+                generateLevel('vbnm', 'basic'),
+                generateLevel('cvbnm,', 'basic'),
+                generateLevel('xcvbnm.,', 'basic'),
+                generateLevel('zxcvbnm./,', 'row')
+            ],
+            index: [
+                generateLevel('rtyufghjvbnm', 'basic')
+            ],
+            middle: [
+                generateLevel('edcik,', 'basic')
+            ],
+            ring: [
+                generateLevel('wsxol.', 'basic')
+            ],
+            ring: [
+                generateLevel('wsxol.', 'basic')
+            ],
+            pinky: [
+                generateLevel('qazp;/', 'basic')
+            ]
+        },
+        numbers: {
+            index: [
+                generateLevel('47', 'basic'),
+                generateLevel('38', 'basic'),
+                generateLevel('29', 'basic'),
+                generateLevel('10', 'basic'),
+                generateLevel('56', 'basic'),
+                generateLevel('4567', 'basic'),
+                generateLevel('345678', 'basic'),
+                generateLevel('23456789', 'basic'),
+                generateLevel('1234567890', 'basic'),
+            ]
+        },
+        symbols: {
+            basic: [
+                generateLevel('`-=', 'basic'),
+                generateLevel('[]\'\\', 'basic'),
+            ],
+            advanced: [
+                generateLevel('$&', 'basic'),
+                generateLevel('#*', 'basic'),
+                generateLevel('@(', 'basic'),
+                generateLevel('@(', 'basic'),
+                generateLevel('!)', 'basic'),
+                generateLevel('~_+', 'basic')
+            ]
+        }
     };
-
 
     return levels;
 })()
