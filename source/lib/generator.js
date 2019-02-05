@@ -109,6 +109,11 @@ var Levels = (function () {
                 generateLevel('1234567890', 'basic'),
             ]
         },
+        // arrows: {
+        //     base: [
+
+        //     ]
+        // },
         symbols: {
             basic: [
                 generateLevel('`-=', 'basic'),
