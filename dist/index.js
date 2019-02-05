@@ -7,7 +7,7 @@ _  __/_  / / /__  __ \  _ \_  __ \  _ \_  ___/  __ \
      /____/  /_/
 
 Federico Ghedina - 2019
-~44KB
+~46KB
 */
 !function(){function Balle(t){var e=this,n=!1;this.status=Balle.STATUSES.PENDING,this.value=void 0,this.cause=void 0,this.resolvers=this.resolvers||[],this.rejectors=this.rejectors||[],
 this.finalizers=this.finalizers||[],t=t||function(){};try{t(function(t){n||e.status!==Balle.STATUSES.PENDING||(n=!0,e.status=Balle.STATUSES.FULFILLED,e.value=t,Balle.roll(e.resolvers,"value",e),
@@ -174,13 +174,13 @@ var W=window,xdr=void 0!==W.XDomainRequest&&document.all&&!navigator.userAgent.m
 setHeaders:function(t,e){var n={xml:"text/xml",html:"text/html",json:"application/json"}[e]||"text/html";t.setRequestHeader("Accept",n+"; charset=utf-8")},setMultipartHeader:function(t){
 t.setRequestHeader("Content-Type","multipart/form-data")},setCookiesHeaders:function(t){var e,n,o;for(e=NS.cookie.getall(),n=0,o=e.length;n<o;)t.setRequestHeader("Cookie",e[n].name+"="+e[n].value),n++
 },ajcall:function(t,e){
-var n,o,r=_.getxhr(e),i=e&&e.method||"POST",s=e&&e.cback,a=e&&e.opened||function(){},c=e&&e.loading||function(){},l=e&&e.error||function(){},u=e&&e.abort||function(){},h=e&&e.sync,p=e&&e.data||{},f=e&&e.type||"text/html",d=!e||void 0===e.cache||e.cache,m="xml"===f?"responseXML":"responseText",g=e&&e.timeout||1e4,y=e&&e.hasFiles,v=!1,S=!1,b=!1,N=!1
+var n,o,r=_.getxhr(e),i=e&&e.method||"POST",s=e&&e.cback,a=e&&e.opened||function(){},c=e&&e.loading||function(){},l=e&&e.error||function(){},u=e&&e.abort||function(){},h=e&&e.sync,p=e&&e.data||{},f=e&&e.type||"text/html",d=!e||void 0===e.cache||e.cache,m="xml"===f?"responseXML":"responseText",g=e&&e.timeout||1e4,y=e&&e.hasFiles,v=!1,b=!1,S=!1,N=!1
 ;if(d||(p.C=+new Date),"GET"===i)p=NS.object.toQs(p).substr(1);else{n=new FormData;for(o in p)p.hasOwnProperty(o)&&n.append(o,p[o]);p=n}if(xdr&&e.cors)r.open(i,"GET"===i?t+(p?"?"+p:""):t),r.onerror=l,
 r.ontimeout=function(){},r.onprogress=function(t){if(t.lengthComputable){var e=t.loaded/t.total*100;console.log(e+"% uploaded")}},r.onload=function(){s(r.responseText)},r.timeout=3e3,
 _.setHeaders(r,y,f),o={xml:"text/xml",html:"text/html",json:"application/json"}[f]||"text/html",r.contentType=o,window.setTimeout(function(){r.send()},20);else{r.onreadystatechange=function(){
 if(N===r.readyState)return!1;if(N=r.readyState,4===parseInt(r.readyState,10)&&0===parseInt(r.status,10))return r.onerror({error:404,xhr:r,url:t}),r.abort(),!1
-;if("complete"===N||4===parseInt(N,10)&&200===parseInt(r.status,10))return v=!0,404===parseInt(r.status,10)?(r.onerror.call(r),!1):(s&&(S=r[m],function(){s(S)}()),b=r[m],W.setTimeout(function(){r=null
-},50),b);if(3===N)c(r);else if(2===N)a(r);else if(1===N)switch(y?_.setHeaders(r,"json"):_.setHeaders(r,f),i){case"POST":case"PUT":try{r.send(p||!0)}catch(t){}break;case"DELETE":case"GET":try{
+;if("complete"===N||4===parseInt(N,10)&&200===parseInt(r.status,10))return v=!0,404===parseInt(r.status,10)?(r.onerror.call(r),!1):(s&&(b=r[m],function(){s(b)}()),S=r[m],W.setTimeout(function(){r=null
+},50),S);if(3===N)c(r);else if(2===N)a(r);else if(1===N)switch(y?_.setHeaders(r,"json"):_.setHeaders(r,f),i){case"POST":case"PUT":try{r.send(p||!0)}catch(t){}break;case"DELETE":case"GET":try{
 r.send(null)}catch(t){}break;default:alert(i),r.send(null)}return!0},r.onerror=function(){l&&l.apply(null,arguments)},r.onabort=function(){u&&u.apply(null,arguments)},
 r.open(i,"GET"===i?t+(p?"?"+p:""):t,h),W.setTimeout(function(){v||(v=!0,r.abort())},g);try{return"responseXML"===m?r[m].childNodes[0]:r[m]}catch(t){}}return!0}};NS.makeNs("io",{getxhr:_.getxhr,
 post:function(uri,cback,sync,data,cache,files,err){return _.ajcall(uri,{cback:function(r){files?(r=r.replace(/(?:\/\*(?:[\s\S]*?)\*\/)|(?:([\s;])+\/\/(?:.*)$)/gm,""),
@@ -255,5 +255,14 @@ getElement:NS.Widgzard.getElement,getElements:NS.Widgzard.getElements,getStore:N
 css:NS.css,dom:NS.dom,timer:NS.timer,history:NS.history},W.Engy={component:NS.Engy.component,components:NS.Engy.components,configSet:NS.Engy.configSet,define:NS.Engy.define,get:NS.Engy.get,
 load:NS.Engy.loadStealth,getElement:NS.Engy.getElement,getElements:NS.Engy.getElements,process:NS.Engy.process,render:NS.Engy.render,timer:NS.timer,history:NS.history}}(this,"undefined","prototype"),
 function(){var t=Channeljs.get("keyboard_event");document.body.addEventListener("keyup",function(e){t.pub("up",[e])}),document.body.addEventListener("keydown",function(e){t.pub("down",[e])}),
-document.body.addEventListener("keypress",function(e){t.pub("press",[e])})}();var trg=document.getElementById("trg"),app=Widgzard.render({target:trg,content:[{html:"lorem"}]
-}),channel=Channeljs.get("keyboard_event");channel.sub("down",function(t){console.log(t)})}();
+document.body.addEventListener("keypress",function(e){t.pub("press",[e])})}();var Levels=function(){function t(t,e,n,o,r){var i,s=[],a=t.length;for(e=e>0?e:1,n=n>=e?n:e,r=r||" ",
+i=0;i<o;i++)s.push(function(e){for(var n="";e--;)n+=t[Math.floor(Math.random()*a)];return n}(e+Math.floor(Math.random()*(n-e+1))));return s.join(r)}function e(e,n){return o[e].map(function(e){
+return t.apply(null,[n].concat(e))})}function n(t,n){var o=t.split("");return{set:o,tests:e(n,o)}}var o={basic:[[5,5,1],[2,2,5],[4,4,10],[1,6,10]],row:[[5,5,1],[2,2,5],[4,4,10],[1,6,10]]};return{
+basic:{homerow:[n("fj","basic"),n("dk","basic"),n("sl","basic"),n("a;","basic"),n("gh","basic"),n("fghj","basic"),n("dfghjk","basic"),n("sdfghjkl","basic"),n("asdfghjkl;","row")],
+uprow:[n("ru","basic"),n("ei","basic"),n("wo","basic"),n("qp","basic"),n("ty","basic"),n("rtyu","basic"),n("ertyui","basic"),n("wertyuio","basic"),n("qwertyuiop","row")],
+lowrow:[n("vm","basic"),n("c,","basic"),n("x.","basic"),n("z/","basic"),n("bn","basic"),n("vbnm","basic"),n("cvbnm,","basic"),n("xcvbnm.,","basic"),n("zxcvbnm./,","row")],
+index:[n("rtyufghjvbnm","basic")],middle:[n("edcik,","basic")],ring:[n("wsxol.","basic")],ring:[n("wsxol.","basic")],pinky:[n("qazp;/","basic")]},numbers:{
+index:[n("47","basic"),n("38","basic"),n("29","basic"),n("10","basic"),n("56","basic"),n("4567","basic"),n("345678","basic"),n("23456789","basic"),n("1234567890","basic")]},symbols:{
+basic:[n("`-=","basic"),n("[]'\\","basic")],advanced:[n("$&","basic"),n("#*","basic"),n("@(","basic"),n("@(","basic"),n("!)","basic"),n("~_+","basic")]}}
+}(),trg=document.getElementById("trg"),app=Widgzard.render({target:trg,content:[{tag:"textarea",attrs:{class:"big"}}]}),channel=Channeljs.get("keyboard_event");channel.sub("down",function(t){
+console.log(t)}),console.debug(Levels)}();
