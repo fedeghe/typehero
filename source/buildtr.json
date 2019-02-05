@@ -3,5 +3,6 @@
         "mkdir -p dist"
     ],
     "#source/README.md": ".",
-    "#source/lib/index.js": "dist -plugins=malta-js-uglify[compress:true,output:{max_line_len:200}]...malta-header-comment[name:\"source/head.txt\"] -vars=source/vars.json"
+    "#source/lib/index.js": "dist -plugins=malta-js-uglify[compress:true,output:{max_line_len:200}]...malta-header-comment[name:\"source/head.txt\"] -vars=source/vars.json",
+    "#source/style/style.less": "dist -plugins=malta-less"
 }
