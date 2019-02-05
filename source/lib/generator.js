@@ -16,39 +16,82 @@ var Levels = (function () {
         }
         return res.join(sep)
     }
-    console.log(separatedRepeat(['a', 'b', 'c', 'd'], 1,3, 5))
-    console.log(separatedRepeat(['a', 'b', 'c', 'd'], 2,3, 5))
-    console.log(separatedRepeat(['a', 'b', 'c', 'd'], 3,3, 5))
-    console.log(separatedRepeat(['a', 'b', 'c', 'd'], 3,2, 5))
-    console.log(separatedRepeat(['a', 'b', 'c', 'd'], 3,7, 10))
+
+
+    var tests = {
+        basic: [
+            [5, 5, 1],
+            [2, 2, 5],
+            [4, 4, 10],
+            [1, 6, 10]
+        ],
+        row: [
+            [5, 5, 1],
+            [2, 2, 5],
+            [4, 4, 10],
+            [1, 6, 10]
+        ]
+    }
+    function generateTests(test, set) {
+        return tests[test].map(function (t) {
+            return separatedRepeat.apply(null, [set].concat(t));
+        });
+    }
+    function generateLevel(domains, test) {
+        var set = '',
+            i;
+        if (domains.left)
+            for( i in domains.left) {
+                set += domains.left[i]
+            }
+        if (domains.right)
+            for (i in domains.right) {
+                set += domains.right[i]
+            }
+        return {
+            set: set,
+            domains: domains,
+            tests: generateTests(test, set)
+        };
+    }
 
     var levels = {
-        letters: [{
-            set: 'fj',
-            domains:{
+        letters: [
+            generateLevel({
                 left: { index: 'f' },
                 right: { index: 'j' }
-            }
-            tests: [
-                
-            ]
-        }, {
-            set: 'dk',
-            domains:{
+            }, 'basic'),
+            generateLevel({
                 left: { middle: 'd' },
                 right: { middle: 'k' }
-            }
-        }, {
-            set: 'sl',
-            domains: {
+            }, 'basic'),
+            generateLevel({
                 left: { ring: 's' },
                 right: { ring: 'l' }
-            }
-        }]
+            }, 'basic'),
+            generateLevel({
+                left: { pinky: 'a' },
+                right: { pinky: ';' }
+            }, 'basic'),
+            generateLevel({
+                left: { index: 'g' },
+                right: { index: 'h' }
+            }, 'basic'),
+            generateLevel({
+                left: { index: 'fg', middle: 'd'},
+                right: { index: 'hj', middle: 'k'}
+            }, 'basic'),
+            generateLevel({
+                left: { index: 'fg', middle: 'd', ring: 's' },
+                right: { index: 'hj', middle: 'k', ring: 'l' }
+            }, 'basic'),
+            generateLevel({
+                left: { index: 'fg', middle:'d', ring: 's', pinky: 'a' },
+                right: { index: 'hj', middle: 'k', ring: 'l', pinky: ';' }
+            }, 'row')
+        ]
     };
-    function generate() {
 
-    }
 
     return levels;
 })()
