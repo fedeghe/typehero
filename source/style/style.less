@@ -6,11 +6,22 @@ body{
     height:100vh;
     margin-top:50px;
     text-align:center;
-    textarea.big {
-        margin: 0 auto;
-        width:60%;
-        height :300px;
-        font-size:1em;
-        letter-spacing: 0.2em
+    span.letter{
+        font-size:3em;
+        display:inline-block;
+        width: 1em;
+        height: 1.5em;
+        line-height: 1.5em;
+        margin: 0.1em;
+        background-color: white;
+        &.right{
+            background-color: green;
+        }
+        &.wrong{
+            background-color: red;
+        }
+        &.failed{
+            background-color: yellow;
+        }
     }
 }
