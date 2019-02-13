@@ -1,10 +1,25 @@
-var trg = document.getElementById('trg'),
-    app = Widgzard.render({
-        target: trg,
+Engy.configSet({
+    componentsUrl: 'cmpnt'
+})
+
+var app = Engy.render({
+    data: {
+        level : 0
+    },
+    content: [{
+        attrs: {
+            class: 'panel'
+        },
         content: [{
-            tag: 'textarea',
-            attrs: {
-                class: 'big'
-            }
+            component: 'panel',
+            params: {
+                name : 'Federico'
+            },
+
+        }, {
+            component: 'typefield'
         }]
-    });
+    }, {
+
+    }]
+});
