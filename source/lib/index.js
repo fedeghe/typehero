@@ -1,7 +1,8 @@
 (function () {
     $$dependencies.js$$
     $$keyMediator.js$$
-    $$generator.js$$
+    $$levels.js$$
+
     $$ui.js$$
 
     var channel = Channeljs.get('keyboard_event');
