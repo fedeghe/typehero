@@ -7,10 +7,21 @@ body {
   margin-top: 50px;
   text-align: center;
 }
-body textarea.big {
-  margin: 0 auto;
-  width: 60%;
-  height: 300px;
-  font-size: 1em;
-  letter-spacing: 0.2em;
+body span.letter {
+  font-size: 3em;
+  display: inline-block;
+  width: 1em;
+  height: 1.5em;
+  line-height: 1.5em;
+  margin: 0.1em;
+  background-color: white;
+}
+body span.letter.right {
+  background-color: green;
+}
+body span.letter.wrong {
+  background-color: red;
+}
+body span.letter.failed {
+  background-color: yellow;
 }
