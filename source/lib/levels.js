@@ -46,8 +46,10 @@ var Levels = (function () {
     }
 
     var levels = {
-        basic: {
-            homerow: [
+        
+        basic: [{
+            name: 'homerow',
+            tests: [
                 generateLevel('fj', 'basic'),
                 generateLevel('dk', 'basic'),
                 generateLevel('sl', 'basic'),
@@ -57,8 +59,10 @@ var Levels = (function () {
                 generateLevel('dfghjk', 'basic'),
                 generateLevel('sdfghjkl', 'basic'),
                 generateLevel('asdfghjkl;', 'row')
-            ],
-            uprow: [
+            ]
+        }, {
+            name: 'uprow',
+            tests: [
                 generateLevel('ru', 'basic'),
                 generateLevel('ei', 'basic'),
                 generateLevel('wo', 'basic'),
@@ -68,8 +72,10 @@ var Levels = (function () {
                 generateLevel('ertyui', 'basic'),
                 generateLevel('wertyuio', 'basic'),
                 generateLevel('qwertyuiop', 'row')
-            ],
-            lowrow: [
+            ]
+        }, {
+            name: 'lowrow',
+            tests: [
                 generateLevel('vm', 'basic'),
                 generateLevel('c,', 'basic'),
                 generateLevel('x.', 'basic'),
@@ -79,25 +85,31 @@ var Levels = (function () {
                 generateLevel('cvbnm,', 'basic'),
                 generateLevel('xcvbnm.,', 'basic'),
                 generateLevel('zxcvbnm./,', 'row')
-            ],
-            index: [
+            ]
+        }, {
+            name: 'index',
+            tests: [
                 generateLevel('rtyufghjvbnm', 'basic')
-            ],
-            middle: [
+            ]
+        }, {
+            name: 'middle',
+            tests: [
                 generateLevel('edcik,', 'basic')
             ],
-            ring: [
+        }, {
+            name: 'ring',
+            tests: [
                 generateLevel('wsxol.', 'basic')
-            ],
-            ring: [
-                generateLevel('wsxol.', 'basic')
-            ],
-            pinky: [
+            ]
+        }, {
+            name: 'index',
+            tests: [
                 generateLevel('qazp;/', 'basic')
             ]
-        },
-        numbers: {
-            index: [
+        }],
+        numbers: [{
+            name: 'index',
+            tests: [
                 generateLevel('47', 'basic'),
                 generateLevel('38', 'basic'),
                 generateLevel('29', 'basic'),
@@ -108,18 +120,17 @@ var Levels = (function () {
                 generateLevel('23456789', 'basic'),
                 generateLevel('1234567890', 'basic'),
             ]
-        },
-        // arrows: {
-        //     base: [
+        }],
 
-        //     ]
-        // },
-        symbols: {
-            basic: [
+        symbols: [{
+            name: 'basic',
+            tests:[
                 generateLevel('`-=', 'basic'),
                 generateLevel('[]\'\\', 'basic'),
-            ],
-            advanced: [
+            ]
+        }, {
+            name: 'advanced',
+            tests: [
                 generateLevel('$&', 'basic'),
                 generateLevel('#*', 'basic'),
                 generateLevel('@(', 'basic'),
@@ -127,7 +138,7 @@ var Levels = (function () {
                 generateLevel('!)', 'basic'),
                 generateLevel('~_+', 'basic')
             ]
-        }
+        }]
     };
 
     return levels;
