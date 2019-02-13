@@ -1,11 +1,12 @@
 {
     "EXE": [
-        "mkdir -p test/data dist"
+        "mkdir -p test/data dist/cmpnt"
     ],
     "source/README.md": ".",
     "source/lib/index.js": "dist -plugins=malta-mocha",
-    "source/style/style.less": "dist -plugins=malta-less",
-    "source/test/*.js": "test -plugins=malta-mocha",
     "source/srv.js": "dist -vars=source/vars.json",
-    "source/index.html": "dist -plugins=malta-dev-srv[folder:\"dist\"]"
+    "source/cmpnt/*.js": "dist/cmpnt -vars=source/vars.json",
+    "source/style/style.less": "dist -plugins=malta-less",
+    "source/index.html": "dist -plugins=malta-dev-srv[folder:\"dist\"]",
+    "source/test/*.js": "test -plugins=malta-mocha"
 }

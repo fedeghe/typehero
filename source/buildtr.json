@@ -1,8 +1,11 @@
 {
     "EXE": [
-        "mkdir -p dist"
+        "mkdir -p test/data dist/cmpnt"
     ],
     "#source/README.md": ".",
     "#source/lib/index.js": "dist -plugins=malta-js-uglify[compress:true,output:{max_line_len:200}]...malta-header-comment[name:\"source/head.txt\"] -vars=source/vars.json",
-    "#source/style/style.less": "dist -plugins=malta-less"
+    "#source/srv.js": "dist -vars=source/vars.json",
+    "#source/cmpnt/*.js": "dist/cmpnt -plugins=malta-js-uglify[compress:true,output:{max_line_len:200}] -vars=source/vars.json",
+    "#source/style/style.less": "dist -plugins=malta-less",
+    "#source/index.html": "dist"
 }
